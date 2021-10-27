@@ -31,8 +31,8 @@
 		<a href="http://seiga.nicovideo.jp/seiga/im5162984" target="_blank" rel="noopener">Pose Data</a>
 	</div>
 
-	<script src="js/libs/ammo.wasm.js"></script>
-	<script src="scoreoutputer.min.js"></script>
+	<script src="./js/libs/ammo.wasm.js"></script>
+	<script src="./scoreoutputer.min.js"></script>
 	<script>
 		// 建構子 ScoreOutputer 接受一個字串，該字串為 csv 的檔案名稱
 		// 以下面範例，檔名就為 "109598105(總分: 6).csv"
@@ -84,12 +84,12 @@
 	</script>
 	<script type="module">
 
-		import * as THREE from '/build/three.module.js';
-		import { GUI } from '/jsm/libs/dat.gui.module.js';
-		import { OrbitControls } from '/jsm/controls/OrbitControls.js';
-		import { OutlineEffect } from '/jsm/effects/OutlineEffect.js';
-		import { MMDLoader } from '/jsm/loaders/MMDLoader.js';
-		import { MMDAnimationHelper } from '/jsm/animation/MMDAnimationHelper.js';
+		import * as THREE from './build/three.module.js';
+		import { GUI } from './jsm/libs/dat.gui.module.js';
+		import { OrbitControls } from './jsm/controls/OrbitControls.js';
+		import { OutlineEffect } from './jsm/effects/OutlineEffect.js';
+		import { MMDLoader } from './jsm/loaders/MMDLoader.js';
+		import { MMDAnimationHelper } from './jsm/animation/MMDAnimationHelper.js';
 
 		let camera, scene, renderer, effect;
 		let mesh, helper;
