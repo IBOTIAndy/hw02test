@@ -84,7 +84,7 @@
 	</script>
 	<script type="module">
 
-		import * as THREE from '/build/three.module.js';
+		import * as THREE from './build/three.module.js';
 		import { GUI } from './jsm/libs/dat.gui.module.js';
 		import { OrbitControls } from './jsm/controls/OrbitControls.js';
 		import { OutlineEffect } from './jsm/effects/OutlineEffect.js';
@@ -159,8 +159,9 @@
 					break;
 				case 83:    //KeyS 儲存線段的座標
 				    modelData.location = modelFileList[modelSelect];	//將該model的location存入modelData內
+					console.log("save file.");
 					//儲存檔案(string: 將json轉為str, fileName: 用編號區分不同model, type: 使用 MINE.type)
-				    saveJson(JSON.stringify(modelData), "model_data_" + modelSelect + ".json", "application/json");
+				    //saveJson(JSON.stringify(modelData), "model_data_" + modelSelect + ".json", "application/json");
 					break;
 				case 65:    //KeyA 換上一位角色
 				    scene.remove(scene.getObjectByName("modelMesh"));	//刪除原本的model
@@ -199,23 +200,23 @@
 		}
 
 		// 下載檔案至電腦
-		function saveJson(data, fileName, type) {
-			var file = new Blob([data], {type: type});
-			if (window.navigator.msSaveOrOpenBlob) // IE10+
-				window.navigator.msSaveOrOpenBlob(file, fileName);
-			else { // Others
-				var a = document.createElement("a"), 
-				url = URL.createObjectURL(file);
-				a.href = url;
-				a.download = fileName;
-				document.body.appendChild(a);
-				a.click();
-				setTimeout(function() {
-					document.body.removeChild(a);
-					window.URL.revokeObjectURL(url);  
-				}, 0); 
-			}
-		}
+		// function saveJson(data, fileName, type) {
+		// 	var file = new Blob([data], {type: type});
+		// 	if (window.navigator.msSaveOrOpenBlob) // IE10+
+		// 		window.navigator.msSaveOrOpenBlob(file, fileName);
+		// 	else { // Others
+		// 		var a = document.createElement("a"), 
+		// 		url = URL.createObjectURL(file);
+		// 		a.href = url;
+		// 		a.download = fileName;
+		// 		document.body.appendChild(a);
+		// 		a.click();
+		// 		setTimeout(function() {
+		// 			document.body.removeChild(a);
+		// 			window.URL.revokeObjectURL(url);  
+		// 		}, 0); 
+		// 	}
+		// }
 
 		var body = document.body;
 
